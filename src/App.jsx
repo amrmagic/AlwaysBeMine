@@ -50,8 +50,8 @@ export default function App() {
   // 🎉 عند الضغط على زر "موافقة"
   const handleYesClick = () => {
     Swal.fire({
-      title: "<span style='font-size: 32px; color: #ff4b2b;'>هييييييييه وبحبك ❤️</span>",
-      html: "<div style='font-size: 80px; margin: 10px 0;'>❤️</div><p style='font-size: 18px; color: #333;'>أحلى وأجمل صفحة جديدة في حياتنا مع بعض 🥰</p>",
+      title: "<span style='font-size: 30px; color: #ff4b2b;'>هييييييييه وبحبك ❤️</span>",
+      html: "<div style='font-size: 70px; margin: 10px 0;'>❤️</div><p style='font-size: 18px; color: #333;'>أحلى وأجمل صفحة جديدة في حياتنا مع بعض 🥰</p>",
       confirmButtonText: "كل حبي لك ❤️",
       confirmButtonColor: "#ff4b2b",
     });
@@ -63,8 +63,8 @@ export default function App() {
       title: "هحاول تاني وتالت لحد ما أكسَب قلبك 🥺",
       text: "مش هيأس أبداً! 💔",
       imageUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnRmcWVsOTR6dmxndW53cTdzbWJ1NDFjc2RwNzUxeTlxaTBpdmsyNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L9523421HC6J2/giphy.gif",
-      imageWidth: 200,
-      imageHeight: 200,
+      imageWidth: 180,
+      imageHeight: 180,
       imageAlt: "Sad Emoji",
       confirmButtonText: "اديني فرصة تانية 🌹",
       confirmButtonColor: "#dc3545",
@@ -96,7 +96,7 @@ export default function App() {
               placeholder="اكتبي love 🔑"
               value={passwordInput}
               onChange={(e) => setPasswordInput(e.target.value)}
-              style={{ width: "100%", padding: "12px", borderRadius: "10px", border: "1px solid #ccc", marginBottom: "10px", textAlign: "center", fontSize: "16px", outline: "none" }}
+              style={{ width: "100%", padding: "12px", borderRadius: "10px", border: "1px solid #ccc", marginBottom: "10px", textAlign: "center", fontSize: "16px", outline: "none", boxSizing: "border-box" }}
             />
             {passwordError && <p style={{ color: "red", fontSize: "14px", marginBottom: "10px" }}>{passwordError}</p>}
             <button
@@ -111,14 +111,15 @@ export default function App() {
     );
   }
 
-  // 💖 شاشة الرسالة والصور
+  // 💖 شاشة الرسالة والصور (محتوى مرن ينزل لآخر الصفحة)
   return (
-    <div style={{ minHeight: "100vh", width: "100%", background: "#fff5f5", overflowY: "auto", padding: "20px 10px 80px 10px", boxSizing: "border-box" }}>
+    <div style={{ width: "100%", backgroundColor: "#fff5f5", padding: "20px 10px 100px 10px", boxSizing: "border-box", minHeight: "100vh" }}>
+      
       {/* مشغل الصوت */}
       <audio ref={audioRef} loop src="/music.mp3" />
 
-      <button className="music-toggle" onClick={togglePlay} style={{ position: "fixed", top: "15px", right: "15px", zIndex: 1000, background: "#fff", border: "none", borderRadius: "50%", padding: "10px", boxShadow: "0 2px 10px rgba(0,0,0,0.2)", cursor: "pointer" }}>
-        {isPlaying ? <BsVolumeUpFill size={20} color="#ff4b2b" /> : <BsVolumeMuteFill size={20} color="#ff4b2b" />}
+      <button onClick={togglePlay} style={{ position: "fixed", top: "15px", right: "15px", zIndex: 1000, background: "#fff", border: "none", borderRadius: "50%", padding: "10px", boxShadow: "0 2px 10px rgba(0,0,0,0.2)", cursor: "pointer" }}>
+        {isPlaying ? <BsVolumeUpFill size={22} color="#ff4b2b" /> : <BsVolumeMuteFill size={22} color="#ff4b2b" />}
       </button>
 
       <div style={{ maxWidth: "500px", margin: "0 auto", background: "#fff", padding: "20px", borderRadius: "20px", textAlign: "center", boxShadow: "0 4px 15px rgba(0,0,0,0.05)" }}>
@@ -139,19 +140,18 @@ export default function App() {
         <p style={{ fontSize: "16px", color: "#333", fontWeight: "bold" }}>كل ذكرياتنا الجميلة بتفكرني قد إيه أنتِ غالية عندي ✨</p>
         <img src={photos[3]} alt="Memory 4" style={{ width: "100%", borderRadius: "15px", margin: "10px 0 20px 0", display: "block" }} />
 
-        {/* باقي الصور في المعرض */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", margin: "15px 0" }}>
-          <img src={photos[4]} alt="Memory 5" style={{ width: "100%", height: "140px", objectFit: "cover", borderRadius: "10px" }} />
-          <img src={photos[5]} alt="Memory 6" style={{ width: "100%", height: "140px", objectFit: "cover", borderRadius: "10px" }} />
-          <img src={photos[6]} alt="Memory 7" style={{ width: "100%", height: "140px", objectFit: "cover", borderRadius: "10px" }} />
-          <img src={photos[7]} alt="Memory 8" style={{ width: "100%", height: "140px", objectFit: "cover", borderRadius: "10px" }} />
+        {/* باقي الصور في شبكة (Grid) */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", margin: "20px 0" }}>
+          {photos.slice(4).map((imgUrl, idx) => (
+            <img key={idx} src={imgUrl} alt={`Memory ${idx + 5}`} style={{ width: "100%", height: "140px", objectFit: "cover", borderRadius: "10px" }} />
+          ))}
         </div>
 
         <h3 style={{ color: "#ff4b2b", margin: "25px 0 15px 0" }}>نفتح صفحة جديدة مع بعض؟ 🕊️</h3>
 
         {/* أزرار الإجابة */}
         <div style={{ display: "flex", justifyContent: "center", gap: "15px", marginTop: "15px", minHeight: "60px", position: "relative" }}>
-          <button onClick={handleYesClick} style={{ padding: "12px 24px", borderRadius: "10px", border: "none", background: "#28a745", color: "#fff", fontWeight: "bold", fontSize: "16px", cursor: "pointer" }}>
+          <button onClick={handleYesClick} style={{ padding: "12px 20px", borderRadius: "10px", border: "none", background: "#28a745", color: "#fff", fontWeight: "bold", fontSize: "15px", cursor: "pointer" }}>
             موافقة ونفتح صفحة جديدة 🥰
           </button>
 
@@ -160,13 +160,13 @@ export default function App() {
             onTouchStart={moveNoButton} 
             onClick={handleNoClick}
             style={{ 
-              padding: "12px 24px", 
+              padding: "12px 20px", 
               borderRadius: "10px", 
               border: "none", 
               background: "#dc3545", 
               color: "#fff", 
               fontWeight: "bold", 
-              fontSize: "16px",
+              fontSize: "15px",
               cursor: "pointer",
               transition: "all 0.2s ease",
               ...noBtnPosition 
