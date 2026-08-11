@@ -4,27 +4,16 @@ import { BsVolumeUpFill, BsVolumeMuteFill } from "react-icons/bs";
 
 import MouseStealing from "./MouseStealer.jsx";
 
-import yesgif0 from "./assets/GifData/Yes/love.gif";
-import yesgif1 from "./assets/GifData/Yes/love2.gif";
-import yesgif2 from "./assets/GifData/Yes/love3.gif";
-import yesgif3 from "./assets/GifData/Yes/love4.gif";
-import yesgif4 from "./assets/GifData/Yes/love5.gif";
-import yesgif5 from "./assets/GifData/Yes/love6.gif";
-import yesgif6 from "./assets/GifData/Yes/love7.gif";
-
 export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentGifIndex, setCurrentGifIndex] = useState(0);
   const audioRef = useRef(null);
 
+  // صور رومانسية جاهزة عبر روابط مباشرة
   const yesGifs = [
-    yesgif0,
-    yesgif1,
-    yesgif2,
-    yesgif3,
-    yesgif4,
-    yesgif5,
-    yesgif6,
+    "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHY5dnM3b3dqYWFqd2ZxcTNhOWp2OGVwNDdkOWd3ZnVsYWhmZ3F6OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L3X9GvEGEYBSRlq43Y/giphy.gif",
+    "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjRsczJseHlycnpxNmVraHR5cnRqdThjczl2NGVvMTh4aWZqZHAxYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26hpKMT7M4SOT5lQc/giphy.gif",
+    "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjJhYWZubDF2cXQ3bmlzbnNmc241b3F1Zmt5czV2OWQzaWZtazJldSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKoWXm3okO1kgHC/giphy.gif"
   ];
 
   const togglePlay = () => {
@@ -40,7 +29,7 @@ export default function App() {
     Swal.fire({
       title: "أحبك من كل قلبي! ❤️",
       text: "أعدك ببدء صفحة جديدة مليئة بالأمل والسعادة معاً.",
-      imageUrl: yesgif0,
+      imageUrl: yesGifs[0],
       imageWidth: 200,
       imageHeight: 200,
       imageAlt: "Love",
@@ -63,7 +52,7 @@ export default function App() {
       </button>
 
       <div className="content-card">
-        <img src={yesGifs[currentGifIndex]} alt="Love GIF" className="main-gif" />
+        <img src={yesGifs[currentGifIndex]} alt="Love GIF" className="main-gif" style={{ maxWidth: "250px", borderRadius: "15px" }} />
 
         <h1 className="title-text">أنا بحبك ومقدرش أعيش من غيرك لحظة ❤️</h1>
         
