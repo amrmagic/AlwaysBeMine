@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Swal from "sweetalert2";
 import { BsVolumeUpFill, BsVolumeMuteFill } from "react-icons/bs";
 
-import MouseStealing from "./MouseStealer.js";
+import MouseStealing from "./MouseStealer.jsx";
 import swalbg from "./assets/Lovingbg2_main.gif";
 import loveu from "./assets/GifData/cutieSwal.gif";
 
