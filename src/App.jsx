@@ -1,15 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
-import Spline from "@splinetool/react-spline";
+import React, { useState, useRef } from "react";
 import Swal from "sweetalert2";
-import { BsVolumeUpFill, BsVolumeMuteFill } from "react-icons/react-icons";
+import { BsVolumeUpFill, BsVolumeMuteFill } from "react-icons/bs";
 
 import MouseStealing from "./MouseStealer.js";
-import loveSvg from "./assets/All You Need Is Love.svg";
-import LoveGif from "./assets/GifData/main_theme.gif";
-import heartGif from "./assets/GifData/happy_cat.gif";
-import sadGif from "./assets/GifData/sad.gif";
-import WordMareque from "./MarqueeProposal.jsx";
-import purposerose from "./assets/GifData/Rose_Main.gif";
 import swalbg from "./assets/Lovingbg2_main.gif";
 import loveu from "./assets/GifData/cutieSwal.gif";
 
