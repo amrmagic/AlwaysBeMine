@@ -3,8 +3,6 @@ import Swal from "sweetalert2";
 import { BsVolumeUpFill, BsVolumeMuteFill } from "react-icons/bs";
 
 import MouseStealing from "./MouseStealer.jsx";
-import swalbg from "./assets/Lovingbg2_main.gif";
-import loveu from "./assets/GifData/cutieSwal.gif";
 
 import yesgif0 from "./assets/GifData/Yes/love.gif";
 import yesgif1 from "./assets/GifData/Yes/love2.gif";
@@ -42,11 +40,10 @@ export default function App() {
     Swal.fire({
       title: "أحبك من كل قلبي! ❤️",
       text: "أعدك ببدء صفحة جديدة مليئة بالأمل والسعادة معاً.",
-      imageUrl: loveu,
+      imageUrl: yesgif0,
       imageWidth: 200,
       imageHeight: 200,
-      imageAlt: "Custom image",
-      background: `#fff url(${swalbg})`,
+      imageAlt: "Love",
       confirmButtonText: "كل حبي لكِ ✨",
       confirmButtonColor: "#ff4b2b",
     });
